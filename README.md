@@ -8,7 +8,7 @@ Where should an AI agent use a model, which model, and when should it hand the d
 
 2,281 real API calls, about $0.15 at list prices. Every number below is recomputed from the raw responses in `results/` by `src/analyze.py` and checked by `src/validate.py`.
 
-Write-up: *[Medium link]* · Film: *[video link]*
+The write-up and the 92-second film will be linked here when they are published.
 
 ![Title card from the film](figures/title-card.png)
 
