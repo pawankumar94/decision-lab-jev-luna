@@ -1,6 +1,6 @@
 """Synthesize the film soundtrack from the timeline's cue list. No samples, no downloads, no licences.
 
-Usage: python3 src/film_audio.py renders/film-cues.json renders/film-audio.wav
+Usage: python3 src/film_audio.py renders/film-cues.json renders/film-audio.wav [chiptune|pad]
 The cue file comes from window.film.cues (written by film/render.js); every sound sits on a real timeline event.
 """
 import json
@@ -49,7 +49,7 @@ def pluck(freq, seconds=.7, bright=.35):
 
 # ---------- effects ----------
 def fx_tick(level=1.0):
-    n = int(.05 * SR); return level * .22 * (sine(2600, .05) * env(n, .001, .012, 6) + .3 * band_noise(.05, 3000, 9000) * env(n, .0005, .006, 6))
+    n = int(.05 * SR); return level * .15 * (sine(2600, .05) * env(n, .001, .012, 6) + .3 * band_noise(.05, 3000, 9000) * env(n, .0005, .006, 6))
 
 
 def fx_thunk():
@@ -166,10 +166,132 @@ def bed(seconds):
     return out * fade
 
 
+# ---------- original chiptune score (default) ----------
+# Retro 8-bit style written for this film: pulse lead, pulse arpeggio, triangle bass, noise drums.
+# Original melody over a I-V-vi-IV progression in A major, matching the effects' key.
+BEAT = 0.425          # 141.2 BPM: each robot move (0.85 s) lands on every second beat
+GRID0 = 0.07          # beat grid phase so beats coincide with the move ticks
+A_MAJOR = {'I': (57, [57, 61, 64]), 'V': (52, [52, 56, 59]), 'vi': (54, [54, 57, 61]), 'IV': (50, [50, 54, 57])}
+PROG = ['I', 'V', 'vi', 'IV', 'I', 'V', 'vi', 'IV']
+# (start beat, length in beats, MIDI note) per bar; composed in C and transposed down 3 semitones to A.
+LEAD = [
+    [(0, 1, 76), (1, 1, 79), (2, .5, 84), (2.5, .5, 83), (3, 1, 79)],
+    [(0, 1, 74), (1, 1, 79), (2, 2, 83)],
+    [(0, 1, 84), (1, .5, 83), (1.5, .5, 81), (2, 1, 76), (3, 1, 81)],
+    [(0, 1, 77), (1, 1, 81), (2, 2, 84)],
+    [(0, .5, 79), (.5, .5, 76), (1, 1, 72), (2, 1, 76), (3, 1, 79)],
+    [(0, 1, 71), (1, 1, 74), (2, .5, 79), (2.5, .5, 77), (3, 1, 74)],
+    [(0, 1, 76), (1, 1, 72), (2, 2, 69)],
+    [(0, 1, 77), (1, 1, 76), (2, 1, 74), (3, 1, 79)],
+]
+ENDING = [(0, 1, 76), (1, 1, 74), (2, 2, 72)]  # resolves to the tonic over the last bar
+
+
+def midi_hz(m):
+    return 440.0 * 2 ** ((m - 69) / 12)
+
+
+def lowpass(x, cutoff):
+    spec = np.fft.rfft(x); f = np.fft.rfftfreq(len(x), 1 / SR)
+    spec *= 1 / np.sqrt(1 + (f / cutoff) ** 4)
+    return np.fft.irfft(spec, len(x))
+
+
+def note_env(n, release=.03):
+    t = np.arange(n) / SR; e = np.minimum(1, t / .004) * (.65 + .35 * np.exp(-t / .08))
+    r = int(release * SR); e[-r:] *= np.linspace(1, 0, r) if n > r else 1
+    return e
+
+
+def pulse(f, dur, duty):
+    t = np.arange(int(dur * SR)) / SR
+    return np.where((t * f) % 1 < duty, 1.0, -1.0)
+
+
+def tri(f, dur):
+    t = np.arange(int(dur * SR)) / SR
+    return 2 * np.abs(2 * ((t * f) % 1) - 1) - 1
+
+
+def place(track, t, clip, gain):
+    i = int(t * SR)
+    if i >= len(track) or i < 0: return
+    j = min(len(track), i + len(clip)); track[i:j] += gain * clip[:j - i]
+
+
+def section_at(t, schedule):
+    for name, (a, b) in schedule.items():
+        if a <= t < b: return name
+    return 'end'
+
+
+def chiptune(seconds, schedule):
+    n = int(seconds * SR)
+    lead, arp, bass, drums = (np.zeros(n) for _ in range(4))
+    bar_len = 4 * BEAT
+    end_start = schedule.get('end', [seconds - 14, seconds])[0]
+    last_bar = int((seconds - 2.2 - GRID0) // bar_len) - 1
+    b = 0
+    while GRID0 + b * bar_len < seconds - 1.5:
+        t0 = GRID0 + b * bar_len
+        sec = section_at(t0 + .01, schedule)
+        root, chord = A_MAJOR[PROG[b % 8]]
+        final = b >= last_bar
+        if final: root, chord = A_MAJOR['I']
+        # Triangle bass: root and octave in eighths (quiet half-time in the reading scene).
+        step = BEAT if sec == 'hybrid' else BEAT / 2
+        for k in range(int(round(bar_len / step))):
+            m = root - 12 + (12 if k % 4 == 2 else 0)
+            place(bass, t0 + k * step, tri(midi_hz(m), step * .9) * note_env(int(step * .9 * SR)), .55)
+        # Pulse arpeggio in sixteenths, thin 12.5% duty.
+        if sec != 'title' or b % 2 == 0:
+            for k in range(16):
+                m = chord[k % 3] + 12 * (1 + (k // 3) % 2)
+                d = BEAT / 4 * .8
+                place(arp, t0 + k * BEAT / 4, pulse(midi_hz(m), d, .125) * note_env(int(d * SR), .01), .16)
+        # Lead melody: full during driving, results and the ending; resting while viewers read notes.
+        if sec in ('nav', 'navres', 'results', 'end'):
+            notes = ENDING if final else LEAD[b % 8]
+            for sb, lb, m in notes:
+                d = lb * BEAT * .92
+                place(lead, t0 + sb * BEAT, pulse(midi_hz(m - 3), d, .25) * note_env(int(d * SR), .04), .32)
+        # Noise-channel drums.
+        if sec != 'title':
+            for k in range(8):
+                tt = t0 + k * BEAT / 2
+                hat = rng.standard_normal(int(.03 * SR)) * np.exp(-np.arange(int(.03 * SR)) / (.006 * SR))
+                place(drums, tt, hat, .10 if k % 2 else .05)
+            if sec != 'hybrid':
+                for k in (0, 2):
+                    kn = int(.18 * SR); kick = np.sin(2 * np.pi * np.cumsum(np.linspace(140, 45, kn)) / SR) * np.exp(-np.arange(kn) / (.05 * SR))
+                    place(drums, t0 + k * BEAT, kick, .9)
+                for k in (1, 3):
+                    sn = int(.12 * SR); snare = rng.standard_normal(sn) * np.exp(-np.arange(sn) / (.03 * SR))
+                    place(drums, t0 + k * BEAT, snare, .28)
+        b += 1
+        if final: break
+    # Final sustained tonic chord under the end card.
+    t_end = GRID0 + b * bar_len
+    hold = max(.5, seconds - t_end)
+    for m in A_MAJOR['I'][1]:
+        place(lead, t_end, pulse(midi_hz(m + 12), hold, .5) * np.exp(-np.arange(int(hold * SR)) / (1.2 * SR)), .10)
+    mix = lowpass(lead, 5200) + lowpass(arp, 4200) + lowpass(bass, 2500) + lowpass(drums, 9000)
+    # Scene dynamics: the reading scene sits lower so the incident notes stay in focus.
+    level = np.ones(n)
+    for name, (a, b2) in schedule.items():
+        if name == 'hybrid':
+            i, j = int(a * SR), min(n, int(b2 * SR)); level[i:j] = .7
+    level = np.convolve(level, np.ones(int(.4 * SR)) / int(.4 * SR), mode='same')
+    fade = np.ones(n); fi, fo = int(1.2 * SR), int(2.5 * SR); fade[:fi] = np.linspace(0, 1, fi); fade[-fo:] = np.linspace(1, 0, fo)
+    mono = mix * level * fade * .07
+    return np.vstack([mono * .96 + np.roll(arp, int(.012 * SR)) * level * fade * .004, mono * .96])
+
+
 def main(cue_path, out_path):
     data = json.loads(open(cue_path).read())
     seconds = data['duration'] + 0.5
-    mix = bed(seconds)
+    music = (sys.argv[3] if len(sys.argv) > 3 else 'chiptune')
+    mix = chiptune(seconds, data.get('schedule', {})) if music == 'chiptune' else bed(seconds)
     fx = np.zeros(mix.shape[1])
     for c in data['cues']:
         clip = FX[c['type']](c); i = int(c['t'] * SR); j = min(len(fx), i + len(clip)); fx[i:j] += clip[:j - i]

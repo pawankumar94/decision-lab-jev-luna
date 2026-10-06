@@ -24,7 +24,7 @@ const frames = path.join(out, 'film-frames');
   console.log('Film duration', duration.toFixed(1), 's', JSON.stringify(schedule));
   const cues = await page.evaluate(() => window.film.cues);
   fs.mkdirSync(out, { recursive: true });
-  fs.writeFileSync(path.join(out, 'film-cues.json'), JSON.stringify({ duration, cues }, null, 1));
+  fs.writeFileSync(path.join(out, 'film-cues.json'), JSON.stringify({ duration, cues, schedule }, null, 1));
   if (audioOnly) { await browser.close(); encode(duration); return; }
 
   // Overflow gate: sample each scene densely; any clipped text or element past the stage edge fails the render.
