@@ -1,0 +1,842 @@
+[
+  {
+    "id": "banking77-train-1250",
+    "text": "My card was working but now it doesn't.",
+    "label": "card_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-1282",
+    "text": "I tried using my card, but it doesn't work.",
+    "label": "card_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-1348",
+    "text": "What's going on? My card wont accept any transactions.",
+    "label": "card_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-1313",
+    "text": "What can I do to make my physical card work?",
+    "label": "card_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-1354",
+    "text": "What do I do if my card is not working?",
+    "label": "card_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-1311",
+    "text": "WHAT IS THE MAIN REASON OF THIS PROBLEM",
+    "label": "card_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-1315",
+    "text": "There is something wrong with my card. Tried to use it a few times today in different places and it just didn't work. The transactions I tried to make were really small so not sure what's going on",
+    "label": "card_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-1317",
+    "text": "How do I check security settings using the app?",
+    "label": "card_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-1295",
+    "text": "Is my card frozen?",
+    "label": "card_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-1289",
+    "text": "My physical card is not working",
+    "label": "card_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-1804",
+    "text": "Any charges applicable for new card?",
+    "label": "contactless_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-1816",
+    "text": "What is the reason when I tried to pay contactless at the bus, it didnt work?",
+    "label": "contactless_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-1784",
+    "text": "Why is my contactless not working?",
+    "label": "contactless_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-1792",
+    "text": "Why wasn't my contactless accepted at the metro?",
+    "label": "contactless_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-1783",
+    "text": "How come when I tried to pay contactless at the bus it didnt work?",
+    "label": "contactless_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-1801",
+    "text": "how to get new card?",
+    "label": "contactless_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-1794",
+    "text": "I can't get a contactless payment to work.",
+    "label": "contactless_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-1813",
+    "text": "Are my contactless settings correct? I tried to use it today but it wasn't working.",
+    "label": "contactless_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-1798",
+    "text": "I'm confused ass to why my contactless is not working.",
+    "label": "contactless_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-1805",
+    "text": "I have a contactless that's broken.",
+    "label": "contactless_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-8190",
+    "text": "I cannot get my virtual card to function.",
+    "label": "virtual_card_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-8195",
+    "text": "I received my Virtual card information, but was unable to use it to make a purchase. Why did this happen and what can I do?",
+    "label": "virtual_card_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-8172",
+    "text": "My disposable virtual card was rejected.",
+    "label": "virtual_card_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-8183",
+    "text": "I can't use my virtual disposable card",
+    "label": "virtual_card_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-8191",
+    "text": "What is the reason I got rejected for using my disposable virtual card to pay a subscription to the gym?",
+    "label": "virtual_card_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-8205",
+    "text": "I can't make purchases with my virtual card.",
+    "label": "virtual_card_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-8192",
+    "text": "I can't get my virtual card to work at all",
+    "label": "virtual_card_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-8168",
+    "text": "Can I use my virtual card to complete transactions for memberships?",
+    "label": "virtual_card_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-8201",
+    "text": "I tried to use my disposable virtual card to pay a subscription to the gym and it got rejected. Any ideas why?",
+    "label": "virtual_card_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-8186",
+    "text": "This disposable virtual card is not working.",
+    "label": "virtual_card_not_working",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5975",
+    "text": "My card was not accepted in a shop",
+    "label": "declined_card_payment",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5868",
+    "text": "My payment has been declined!! What's going on, I thought everything was alright and working well?",
+    "label": "declined_card_payment",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5890",
+    "text": "Why didn't my card payment work?",
+    "label": "declined_card_payment",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5889",
+    "text": "Hi, is everything in good standing with my card? I am receiving multiple \"decline\" messages.",
+    "label": "declined_card_payment",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5919",
+    "text": "Why does is payment not going through? Did my account get frozen or some other issue I don't know about. What can I do to fix this problem?",
+    "label": "declined_card_payment",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5940",
+    "text": "For some reason my card payment hasn't worked. what can I do to look into that?",
+    "label": "declined_card_payment",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5891",
+    "text": "My card payment didn't go through.",
+    "label": "declined_card_payment",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5918",
+    "text": "My card did not work at store.",
+    "label": "declined_card_payment",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5854",
+    "text": "Can you tell me why my card keeps getting declined every time I try to use it?",
+    "label": "declined_card_payment",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5946",
+    "text": "I'm not sure why my payment has been declined? Please tell me why, I thought it was all good.",
+    "label": "declined_card_payment",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5240",
+    "text": "I tried to make a payment with my card and it was declined. Why is it pending?",
+    "label": "pending_card_payment",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5106",
+    "text": "I put in a payment a while ago and it has still not cleared and is showing up as \"pending\", how long does it take to clear?",
+    "label": "pending_card_payment",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5211",
+    "text": "why do I have a pending payment?",
+    "label": "pending_card_payment",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5228",
+    "text": "How many days does a regular transaction take to complete?  I see a pending payment that hasn't changed in the last several days.",
+    "label": "pending_card_payment",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5100",
+    "text": "Why is my payment in pending status?",
+    "label": "pending_card_payment",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5218",
+    "text": "I have a payment that is still pending",
+    "label": "pending_card_payment",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5232",
+    "text": "What's the pending length for credit transactions? I've had one in my pending category now for days and it won't move to processed.",
+    "label": "pending_card_payment",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5152",
+    "text": "My purchases from this morning are showing up as payment pending. Can you tell me why?",
+    "label": "pending_card_payment",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5231",
+    "text": "Is there a reason my payment is still pending?",
+    "label": "pending_card_payment",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5139",
+    "text": "A payment is pending",
+    "label": "pending_card_payment",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-3513",
+    "text": "A payment in my account was made by someone I don't know",
+    "label": "card_payment_not_recognised",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-3609",
+    "text": "where is my unknown payment from?",
+    "label": "card_payment_not_recognised",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-3561",
+    "text": "The app is showing a payment I never made.",
+    "label": "card_payment_not_recognised",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-3530",
+    "text": "There is a card payment I'm not familiar with.",
+    "label": "card_payment_not_recognised",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-3597",
+    "text": "I just checked my account on the App and there is a payment on there that I did not make.",
+    "label": "card_payment_not_recognised",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-3587",
+    "text": "I think there's a purchase at a store that I didn't go to.",
+    "label": "card_payment_not_recognised",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-3606",
+    "text": "A random charge got added to my card",
+    "label": "card_payment_not_recognised",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-3534",
+    "text": "I have a payment in my statement that is off",
+    "label": "card_payment_not_recognised",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-3591",
+    "text": "Hello, I noticed there is a payment from my card to a business that I am not familiar with. I definitely did not make this payment.",
+    "label": "card_payment_not_recognised",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-3645",
+    "text": "It is listed in my app that I made a payment which I did not actually make",
+    "label": "card_payment_not_recognised",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-6435",
+    "text": "I got charged in double and want a refund",
+    "label": "transaction_charged_twice",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-6307",
+    "text": "There is a repeat charge for the same item",
+    "label": "transaction_charged_twice",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-6384",
+    "text": "Why was I charged twice for my item!",
+    "label": "transaction_charged_twice",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-6342",
+    "text": "I think I got charged twice for the same thing",
+    "label": "transaction_charged_twice",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-6432",
+    "text": "What do I do if a transaction shows up twice?",
+    "label": "transaction_charged_twice",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-6475",
+    "text": "Why is there a payment showing twice?",
+    "label": "transaction_charged_twice",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-6403",
+    "text": "I am concerned that I am being doubled charged for several items purchased in the past week.  Please review my statement and correct.",
+    "label": "transaction_charged_twice",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-6359",
+    "text": "I have a payment that shows twice",
+    "label": "transaction_charged_twice",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-6361",
+    "text": "I have noticed that my account was double charged for a couple of items this week. Please review and refund the double charged items back.",
+    "label": "transaction_charged_twice",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-6459",
+    "text": "Looks like my card payment was made twice by mistake. I paid at the store earlier which rejected once, second time it worked. App stays at pending for one of the payments. Can you please remove one of them as it's wrong and clearly was declined?",
+    "label": "transaction_charged_twice",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5408",
+    "text": "I want to cancel a purchase",
+    "label": "request_refund",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5508",
+    "text": "I have not received an item i ordered yet so i want to cancel it and get a refund. Can you please guide me on how to go about it?",
+    "label": "request_refund",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5432",
+    "text": "Can I have my money refunded for an item",
+    "label": "request_refund",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5420",
+    "text": "I want to cancel my purchase",
+    "label": "request_refund",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5392",
+    "text": "Is there a way you can have money from a purchase I made refunded to my account.",
+    "label": "request_refund",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5422",
+    "text": "Please help! I need a refund on a transaction on something I bought and I need the refund right away!",
+    "label": "request_refund",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5476",
+    "text": "I changed my mind on something I purchased through you and I need the transaction canceled and a refund as soon as possible. Can you help me please?",
+    "label": "request_refund",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5407",
+    "text": "I bought something that I need a refund for.",
+    "label": "request_refund",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5505",
+    "text": "Can you refund my purchase?",
+    "label": "request_refund",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5385",
+    "text": "i bought the wrong size and would like a refund",
+    "label": "request_refund",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5739",
+    "text": "The refund on my account hasn't shown up",
+    "label": "Refund_not_showing_up",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5824",
+    "text": "Where is the refund on my statement?",
+    "label": "Refund_not_showing_up",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5762",
+    "text": "Please, I need your help as to whether or not you have money for a large refunded purchase I made. I requested it some time ago from the seller, but nothing is showing up.",
+    "label": "Refund_not_showing_up",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5742",
+    "text": "No refund showing in my statement.",
+    "label": "Refund_not_showing_up",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5722",
+    "text": "my refund has not hit my account yet",
+    "label": "Refund_not_showing_up",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5708",
+    "text": "I can not find my refund.",
+    "label": "Refund_not_showing_up",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5675",
+    "text": "Why am I missing my refund",
+    "label": "Refund_not_showing_up",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5825",
+    "text": "I should have a refund in my statement but I can't see it",
+    "label": "Refund_not_showing_up",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5683",
+    "text": "when will I get my refund?",
+    "label": "Refund_not_showing_up",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-5709",
+    "text": "I requested a refund from a merchant several days ago, but don't see anything showing up in my account yet.  Can you check on your end to see if the money has reached you guys?",
+    "label": "Refund_not_showing_up",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-6072",
+    "text": "How long would does it take for a seller to receive an EU transfer if I bought something from them and sent them the money immediately?",
+    "label": "pending_transfer",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-6055",
+    "text": "How come I have pending transfers?",
+    "label": "pending_transfer",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-6099",
+    "text": "how long will it take for my transfer to stop pending",
+    "label": "pending_transfer",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-6058",
+    "text": "How long do EU transfers actually take? I bought something online a couple days ago, sent the money immediately online but the seller says it's still not there yet.",
+    "label": "pending_transfer",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-6048",
+    "text": "My transfer is still pending, why?",
+    "label": "pending_transfer",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-6003",
+    "text": "Why is the transfer showing pending?",
+    "label": "pending_transfer",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-6073",
+    "text": "Money was transferred to me and I am unable to see it",
+    "label": "pending_transfer",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-6082",
+    "text": "I have a trasnger that is pending and wondered about it.",
+    "label": "pending_transfer",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-6077",
+    "text": "Why does it show that my transfer is still pending?",
+    "label": "pending_transfer",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-6079",
+    "text": "How long will my transfer be pending?",
+    "label": "pending_transfer",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-7429",
+    "text": "Is there a reason that my transfer failed?",
+    "label": "failed_transfer",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-7448",
+    "text": "I really need some help to understand why my transfer keeps failing. I'm trying to send money to a friend. Please help.",
+    "label": "failed_transfer",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-7480",
+    "text": "Why was my transaction not approved?",
+    "label": "failed_transfer",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-7447",
+    "text": "Why hasn't my transfer gone through",
+    "label": "failed_transfer",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-7481",
+    "text": "I attemped a transfer and it didn't go through.",
+    "label": "failed_transfer",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-7518",
+    "text": "My transfer didn't complete. Why can't I access funds?",
+    "label": "failed_transfer",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-7436",
+    "text": "Why wont the other bank take my money?? Is it not good enough?? There's sufficient funds but I keep getting denied a standard transfer. Ive tried 5 times!",
+    "label": "failed_transfer",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-7428",
+    "text": "What is happening?  I have tried to transfer money 5x already.  Is the system down?  This shouldnt be happening as this is a basic transfer.",
+    "label": "failed_transfer",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-7497",
+    "text": "What went wrong when I tried to do my transfer?",
+    "label": "failed_transfer",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-7544",
+    "text": "What are the reasons that my mortgage payment won't go through? I'm getting an error and don't know how to correct to get this transfer to go through.",
+    "label": "failed_transfer",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-2755",
+    "text": "I am just waiting for the transaction to be completed.",
+    "label": "transfer_not_received_by_recipient",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-2786",
+    "text": "How long do money transfers take? My friend really needs the money i sent a couple of hours ago but it's not there yet.",
+    "label": "transfer_not_received_by_recipient",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-2706",
+    "text": "I do not know where the transaction is.",
+    "label": "transfer_not_received_by_recipient",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-2802",
+    "text": "I transferred some money but it hasn't arrived.",
+    "label": "transfer_not_received_by_recipient",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-2778",
+    "text": "I'm getting concerned here.  I sent a friend some money and she isn't seeing it.  What's going on?",
+    "label": "transfer_not_received_by_recipient",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-2822",
+    "text": "Recipient has not received the money",
+    "label": "transfer_not_received_by_recipient",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-2729",
+    "text": "How long does it take for transfers to process?  I sent funds to a friend, and she says that she has not yet received anything.",
+    "label": "transfer_not_received_by_recipient",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-2852",
+    "text": "How long will my most recent transfer take to go through? The recipient needs the money urgently.",
+    "label": "transfer_not_received_by_recipient",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-2868",
+    "text": "How long do transfers take? I sent money to a friend who needs it urgently. It's been hours and has not gone through.",
+    "label": "transfer_not_received_by_recipient",
+    "source": "Banking77 official train",
+    "suite": "public"
+  },
+  {
+    "id": "banking77-train-2781",
+    "text": "Why hasn't arrived yet a transaction I did to my friend?",
+    "label": "transfer_not_received_by_recipient",
+    "source": "Banking77 official train",
+    "suite": "public"
+  }
+]

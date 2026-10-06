@@ -1,0 +1,9 @@
+{
+  "protocol.json": "ca78128db06fd198542798e43a88ded7a721ab23d3a2db2ce16a52c8e7b006a8",
+  "data/train.csv": "b06e26ac675513959a63135f11b94ea7786ed02da65db93a5650d8838cbc664b",
+  "data/test.csv": "d12d6e3bc4c3103966ae786dc435913c0c563dfa328f5a3646d0e62cfeeb474d",
+  "data/fit.json": "4c6fe31ef3e302b99178585c2d4aed8c275f6fb6f3da04954d7dd617010bb2fa",
+  "data/dev.json": "73cd7f066d6341fc62eed9ac13c981aebba8366be1f5e30cf852ea783f7e5dad",
+  "data/test.json": "875efdb3870c09886a0405b8a46348cb533b4320334b7ce3c50ab7da76ef5832",
+  "data/challenge.json": "38bb9a39898105084fd8f89fe7f28376abd1a8583f16390b0d895f7e7232bdf5"
+}
