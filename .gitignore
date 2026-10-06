@@ -1,0 +1,10 @@
+# Secrets
+.env
+# Local environments and caches
+.venv/
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+# Render output (frames, audio, videos): regenerate with film/render.js
+renders/

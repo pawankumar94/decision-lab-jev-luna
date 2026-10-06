@@ -1,0 +1,7 @@
+{
+  "name": "decision-lab-jev-luna-film",
+  "private": true,
+  "description": "Renders the experiment film from saved results (film/render.js).",
+  "scripts": { "film:check": "node film/render.js --check-only", "film:render": "node film/render.js" },
+  "devDependencies": { "playwright": "1.62.1" }
+}

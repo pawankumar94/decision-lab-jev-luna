@@ -1,0 +1,6 @@
+# Verification (src/analyze.py, src/validate.py) and the local baselines need only the Python 3.12 standard library.
+# Paid comparator reruns:
+openai==3.24.0
+anthropic==1.11.0
+# Soundtrack synthesis (src/film_audio.py):
+numpy>=2.0
