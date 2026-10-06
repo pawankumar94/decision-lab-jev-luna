@@ -8,7 +8,7 @@ Where should an AI agent use a model, which model, and when should it hand the d
 
 2,281 real API calls, about $0.15 at list prices. Every number below is recomputed from the raw responses in `results/` by `src/analyze.py` and checked by `src/validate.py`.
 
-The write-up and the 92-second film will be linked here when they are published.
+The write-up and the 74-second film will be linked here when they are published.
 
 ![Title card from the film](figures/title-card.png)
 
@@ -92,7 +92,7 @@ Never rerun `src/prepare.py`, `src/comparator.py prepare`, `src/incidents.py pre
 
 ## Render the film
 
-The 92-second film replays saved responses: GSAP drives a seekable timeline, Three.js draws the warehouse, and `src/film_audio.py` synthesizes the soundtrack from the timeline's own events. Frames are rendered after an overflow check that fails on clipped or overlapping text.
+The 74-second film replays saved responses: GSAP drives a seekable timeline, Three.js draws the warehouse, and `src/film_audio.py` synthesizes the soundtrack (a light lo-fi beat locked to the robot moves, plus event sounds) from the timeline's own cues. Frames are rendered after an overflow check that fails on clipped or overlapping text.
 
 ```sh
 npm install && npx playwright install chromium

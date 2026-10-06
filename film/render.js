@@ -20,11 +20,11 @@ const frames = path.join(out, 'film-frames');
   const errors = []; page.on('pageerror', e => errors.push(e.message)); page.on('console', m => m.type() === 'error' && errors.push(m.text()));
   await page.goto(process.env.FILM_URL || 'http://127.0.0.1:8790/film/', { waitUntil: 'networkidle' });
   await page.waitForFunction(() => window.film?.ready, null, { timeout: 30000 });
-  const { duration, schedule } = await page.evaluate(() => ({ duration: window.film.duration, schedule: window.film.schedule }));
+  const { duration, schedule, beat, endCard } = await page.evaluate(() => ({ duration: window.film.duration, schedule: window.film.schedule, beat: window.film.beat, endCard: window.film.endCard }));
   console.log('Film duration', duration.toFixed(1), 's', JSON.stringify(schedule));
   const cues = await page.evaluate(() => window.film.cues);
   fs.mkdirSync(out, { recursive: true });
-  fs.writeFileSync(path.join(out, 'film-cues.json'), JSON.stringify({ duration, cues, schedule }, null, 1));
+  fs.writeFileSync(path.join(out, 'film-cues.json'), JSON.stringify({ duration, cues, schedule, beat, endCard }, null, 1));
   if (audioOnly) { await browser.close(); encode(duration); return; }
 
   // Overflow gate: sample each scene densely; any clipped text or element past the stage edge fails the render.

@@ -89,10 +89,11 @@ class TraceBoard extends World {
 }
 
 // ---------- schedule ----------
-const ACTION = 0.85;
+const ACTION = 0.6;   // seconds per replayed move (one beat at 100 BPM)
+const K = 6.5 / 8;    // incident choreography compression (8 s to 6.5 s each)
 const navLen = Math.max(...D.nav.boards.map(b => b.record.trace.length));
 const S = {}; let cursor = 0;
-for (const [id, len] of [['title', 5.5], ['nav', 3 + navLen * ACTION + 3.2], ['navres', 9], ['hybrid', 2.5 + D.hybrid.incidents.length * 8], ['results', 12], ['end', 14]]) { S[id] = [cursor, cursor + len]; cursor += len; }
+for (const [id, len] of [['title', 4.5], ['nav', 2.4 + navLen * ACTION + 2.6], ['navres', 7.5], ['hybrid', 2.3 + D.hybrid.incidents.length * 8 * K], ['results', 10], ['end', 11]]) { S[id] = [cursor, cursor + len]; cursor += len; }
 const tl = gsap.timeline({ paused: true, defaults: { ease: 'power3.out' } });
 // Scene visibility is a pure function of t (not tween history), so any seek order is safe.
 function sceneAlpha(id, t) {
@@ -123,7 +124,7 @@ const boards = D.nav.boards.map(b => {
   return { b, card, world: new TraceBoard(card.querySelector('canvas'), b.record, new THREE.Color(b.color).getHex(), { half: 4.4, cam: D.nav.cam }) };
 });
 {
-  const [a] = S.nav, start = a + 2.2;
+  const [a] = S.nav, start = a + 1.6;
   tl.from('#nav-boards .board', { y: 50, autoAlpha: 0, duration: .7, stagger: .12, immediateRender: false }, a + .3);
   drive(start, navLen * ACTION + 1, t => boards.forEach(({ b, card, world }) => {
     const r = world.setTime(t / ACTION), s = r.step;
@@ -193,11 +194,12 @@ function showIncident(inc, k) {
 }
 function screenOf(cell, lift = 1.3) { const v = new THREE.Vector3(...H.at(cell[0], cell[1], lift)).project(H.camera); const r = H.canvas.getBoundingClientRect(); return [r.left + (v.x + 1) / 2 * r.width, r.top + (1 - v.y) / 2 * r.height]; }
 {
-  const [a] = S.hybrid; let at = a + 2.5;
+  const [a] = S.hybrid; let at = a + 2.0;
   tl.from('#hybrid-canvas', { autoAlpha: 0, y: 30, duration: .8, immediateRender: false }, a + .3);
   D.hybrid.incidents.forEach((inc, k) => {
     const start = at, kind = inc.visual;
-    drive(start, 8, t => {
+    drive(start, 8 * K, tt => {
+      const t = tt / K;
       if (H.shown !== k) { H.shown = k; showIncident(inc, k); }
       Object.entries(obstacles).forEach(([key, o]) => { o.visible = key === kind && t > .9 && !(inc.behavior === 'wait' && t > 6.4); if (o.visible) o.scale.setScalar(Math.min(1, (t - .9) * 4)); });
       if (t < 1.6) pose('approach', t); else if (t < 5) pose('approach', 1.6); else pose(inc.behavior, t - 5);
@@ -207,15 +209,15 @@ function screenOf(cell, lift = 1.3) { const v = new THREE.Vector3(...H.at(cell[0
       H.path(done, 0x137f79); H.render();
       if (inc.behavior === 'escalate' && t > 4.6) { const [x, y] = screenOf([8, 3], 1.7); gsap.set(humanTag, { left: x - 90, top: y - 50, autoAlpha: Math.min(1, (t - 4.6) * 3) }); } else gsap.set(humanTag, { autoAlpha: 0 });
     });
-    tl.fromTo('.note', { autoAlpha: 0, x: 40 }, { autoAlpha: 1, x: 0, duration: .5, immediateRender: false }, start + 1.1);
-    tl.fromTo('#note-text', { clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: 1.2, ease: 'none', immediateRender: false }, start + 1.4);
-    tl.fromTo('#verdicts', { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: .5, immediateRender: false }, start + 2.9);
-    tl.fromTo('#policy', { autoAlpha: 0 }, { autoAlpha: 1, duration: .4, immediateRender: false }, start + 4.4);
-    tl.to(['.note', '#verdicts', '#policy'], { autoAlpha: 0, duration: .35 }, start + 7.6);
-    cue(start + .9, 'pop'); cue(start + 1.4, 'type', { duration: 1.2 }); cue(start + 2.9, 'blip');
-    if (inc.models.some(m => m.gate === 'wrong')) cue(start + 3.3, 'fail', { level: .7 });
-    cue(start + 5, inc.behavior === 'escalate' ? 'alert' : 'go');
-    at += 8;
+    tl.fromTo('.note', { autoAlpha: 0, x: 40 }, { autoAlpha: 1, x: 0, duration: .5, immediateRender: false }, start + 1.1 * K);
+    tl.fromTo('#note-text', { clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: 1.2 * K, ease: 'none', immediateRender: false }, start + 1.4 * K);
+    tl.fromTo('#verdicts', { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: .5, immediateRender: false }, start + 2.9 * K);
+    tl.fromTo('#policy', { autoAlpha: 0 }, { autoAlpha: 1, duration: .4, immediateRender: false }, start + 4.4 * K);
+    tl.to(['.note', '#verdicts', '#policy'], { autoAlpha: 0, duration: .35 }, start + 7.6 * K);
+    cue(start + .9 * K, 'pop'); cue(start + 1.4 * K, 'type', { duration: 1.2 * K }); cue(start + 2.9 * K, 'blip');
+    if (inc.models.some(m => m.gate === 'wrong')) cue(start + 3.3 * K, 'fail', { level: .7 });
+    cue(start + 5 * K, inc.behavior === 'escalate' ? 'alert' : 'go');
+    at += 8 * K;
   });
 }
 
@@ -240,7 +242,7 @@ $('end-stats').innerHTML = D.end.stats.map(x => `<div class="stat"><b>${x.value}
   const goal = E.goal(10, 3); E.layer.add(goal);
   const bot = E.robot(0x137f79);
   const route = ROUTES.approach.concat(ROUTES.reroute.slice(1));
-  const [a] = S.end, travel = 6.2;
+  const [a] = S.end, travel = 4.8;
   drive(a, 9, t => {
     const u = Math.min(1, Math.max(0, (t - .4) / travel)) * (route.length - 1), k = Math.min(route.length - 2, Math.floor(u)), f = u - k;
     const p = route[k], q = route[k + 1];
@@ -251,13 +253,13 @@ $('end-stats').innerHTML = D.end.stats.map(x => `<div class="stat"><b>${x.value}
     E.orbit(-.3 + t * .05); E.render();
   });
   cue(a + .4 + travel, 'success', { level: .8 });
-  tl.from('#end .line', { x: -60, autoAlpha: 0, duration: .8, stagger: .6, immediateRender: false }, a + .5);
-  [0, 1, 2].forEach(k => cue(a + .5 + k * .6, 'note', { step: k }));
-  tl.fromTo('#end-card', { autoAlpha: 0 }, { autoAlpha: 1, duration: .9, ease: 'power2.inOut', immediateRender: false }, a + 8.2);
-  tl.from('#end-card .cardq', { y: 40, autoAlpha: 0, duration: .8, stagger: .15, immediateRender: false }, a + 8.5);
-  tl.from('#end-card .stat', { y: 30, autoAlpha: 0, duration: .6, stagger: .15, immediateRender: false }, a + 9.3);
-  tl.from(['#end-card .cta', '#end-card .by'], { autoAlpha: 0, duration: .6, stagger: .2, immediateRender: false }, a + 10.1);
-  cue(a + 8.2, 'swish'); cue(a + 8.6, 'resolve');
+  tl.from('#end .line', { x: -60, autoAlpha: 0, duration: .7, stagger: .5, immediateRender: false }, a + .4);
+  [0, 1, 2].forEach(k => cue(a + .4 + k * .5, 'note', { step: k }));
+  tl.fromTo('#end-card', { autoAlpha: 0 }, { autoAlpha: 1, duration: .9, ease: 'power2.inOut', immediateRender: false }, a + 6.0);
+  tl.from('#end-card .cardq', { y: 40, autoAlpha: 0, duration: .8, stagger: .15, immediateRender: false }, a + 6.3);
+  tl.from('#end-card .stat', { y: 30, autoAlpha: 0, duration: .6, stagger: .15, immediateRender: false }, a + 7.0);
+  tl.from(['#end-card .cta', '#end-card .by'], { autoAlpha: 0, duration: .6, stagger: .2, immediateRender: false }, a + 7.6);
+  cue(a + 6.0, 'swish'); cue(a + 6.4, 'resolve');
 }
 
 tl.to({}, { duration: .01 }, cursor);
@@ -270,4 +272,4 @@ function seek(t) {
 seek(0);
 for (const id in S) if (id !== 'title') cue(S[id][0], 'whoosh');
 CUES.sort((x, y) => x.t - y.t);
-window.film = { duration, schedule: S, seek, cues: CUES, ready: true };
+window.film = { duration, schedule: S, seek, cues: CUES, beat: ACTION, endCard: S.end[0] + 6.0, ready: true };

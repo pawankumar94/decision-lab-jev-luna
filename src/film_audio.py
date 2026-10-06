@@ -1,6 +1,6 @@
 """Synthesize the film soundtrack from the timeline's cue list. No samples, no downloads, no licences.
 
-Usage: python3 src/film_audio.py renders/film-cues.json renders/film-audio.wav [chiptune|pad]
+Usage: python3 src/film_audio.py renders/film-cues.json renders/film-audio.wav [lofi|chiptune|pad]
 The cue file comes from window.film.cues (written by film/render.js); every sound sits on a real timeline event.
 """
 import json
@@ -287,11 +287,96 @@ def chiptune(seconds, schedule):
     return np.vstack([mono * .96 + np.roll(arp, int(.012 * SR)) * level * fade * .004, mono * .96])
 
 
+# ---------- lo-fi score (default) ----------
+# Light lo-fi beat: swung dusty drums, electric-piano 7th chords, round bass, vinyl crackle.
+# A major to match the effects; tempo locked so each replayed robot move lands on a beat.
+LOFI_CHORDS = [  # (bass MIDI, chord MIDI notes)
+    (45, [57, 61, 64, 68]),        # Amaj7
+    (42, [54, 57, 61, 64, 68]),    # F#m9
+    (38, [50, 54, 57, 61]),        # Dmaj7
+    (40, [52, 57, 59, 62]),        # E7sus4
+]
+
+
+def epiano(f, dur, vel=1.0):
+    n = int(dur * SR); t = np.arange(n) / SR
+    wob = 1 + .0018 * np.sin(2 * np.pi * .35 * t)                     # gentle tape wobble
+    phase = 2 * np.pi * np.cumsum(np.full(n, f) * wob) / SR
+    index = 1.1 * np.exp(-t / .22) + .12                               # bell-like attack, mellow tail
+    tone = np.sin(phase + index * np.sin(phase)) + .25 * np.sin(2 * phase) * np.exp(-t / .4)
+    amp = np.minimum(1, t / .006) * np.exp(-t / 1.6) * (1 + .12 * np.sin(2 * np.pi * 4.2 * t))
+    r = int(.08 * SR); amp[-r:] *= np.linspace(1, 0, r)
+    return vel * tone * amp
+
+
+def lofi(seconds, schedule, beat, end_card, first_tick):
+    n = int(seconds * SR)
+    keys, bass, drums, vinyl = (np.zeros(n) for _ in range(4))
+    grid0 = first_tick % beat
+    bar = 4 * beat
+    def sec_at(t):
+        for name, (a, b) in schedule.items():
+            if a <= t < b: return name
+        return 'end'
+    b = 0
+    while grid0 + b * bar < seconds - .5:
+        t0 = grid0 + b * bar; sec = sec_at(t0 + .01)
+        root, chord = LOFI_CHORDS[b % 4]
+        card = t0 >= end_card
+        if card: root, chord = LOFI_CHORDS[0]
+        hold = (seconds - t0) if card else bar * 1.05
+        for k, m in enumerate(chord):                                  # lazy strum
+            place(keys, t0 + k * .018, epiano(midi_hz(m), hold, .55 - .05 * k), 1.0)
+        if not card and sec != 'title':
+            for k, m in enumerate(chord[1:]):                          # soft re-voice on the and of 3
+                place(keys, t0 + 2.5 * beat + k * .015, epiano(midi_hz(m + 12), beat * 1.2, .18), 1.0)
+        if sec != 'title':
+            for off, d in ((0, 1.5), (2.5, 1.0)):
+                bn = int(d * beat * SR); tb = np.arange(bn) / SR
+                tone = np.sin(2 * np.pi * midi_hz(root) * tb) + .18 * np.sin(4 * np.pi * midi_hz(root) * tb)
+                place(bass, t0 + off * beat, tone * np.minimum(1, tb / .01) * np.exp(-tb / .9), .55)
+        if sec != 'title' and not card:
+            full = sec != 'hybrid'
+            for k in range(8):                                         # swung eighth hats
+                tt = t0 + (k // 2) * beat + (k % 2) * beat * .58
+                hn = int(.045 * SR); hat = rng.standard_normal(hn) * np.exp(-np.arange(hn) / (.009 * SR))
+                place(drums, tt, hat, (.07 if k % 2 else .11) * (1 if full else .7))
+            if full:
+                for kb in (0, 2.5):                                    # kick on 1 and the and of 3
+                    kn = int(.32 * SR); tk = np.arange(kn) / SR
+                    kick = np.sin(2 * np.pi * np.cumsum(np.linspace(120, 42, kn)) / SR) * np.exp(-tk / .11)
+                    place(drums, t0 + kb * beat, kick, .85)
+                for ks in (1, 3):                                      # soft snare on 2 and 4
+                    sn = int(.2 * SR); ts = np.arange(sn) / SR
+                    snare = (lowpass(rng.standard_normal(sn), 2600) * 1.4 + .6 * np.sin(2 * np.pi * 185 * ts)) * np.exp(-ts / .07)
+                    place(drums, t0 + ks * beat + .012, snare, .30)
+        b += 1
+        if card: break
+    for t in rng.uniform(0, seconds, int(seconds * 5)):                # vinyl crackle
+        cn = int(.004 * SR); place(vinyl, t, rng.standard_normal(cn) * np.exp(-np.arange(cn) / (.0008 * SR)), rng.uniform(.01, .05))
+    vinyl += .004 * lowpass(rng.standard_normal(n), 3500)
+    mix = lowpass(keys, 4200) * .9 + lowpass(bass, 900) + np.tanh(1.6 * lowpass(drums, 6500)) * .8 + vinyl
+    level = np.ones(n)
+    a, b2 = schedule.get('hybrid', [0, 0]); level[int(a * SR):int(b2 * SR)] = .75
+    level = np.convolve(level, np.ones(int(.5 * SR)) / int(.5 * SR), mode='same')
+    fade = np.ones(n); fi, fo = int(1.5 * SR), int(3.0 * SR); fade[:fi] = np.linspace(0, 1, fi); fade[-fo:] = np.linspace(1, 0, fo)
+    mono = mix * level * fade * .06
+    side = np.roll(keys, int(.015 * SR)) * level * fade * .012
+    return np.vstack([mono + side, mono - side])
+
+
 def main(cue_path, out_path):
     data = json.loads(open(cue_path).read())
     seconds = data['duration'] + 0.5
-    music = (sys.argv[3] if len(sys.argv) > 3 else 'chiptune')
-    mix = chiptune(seconds, data.get('schedule', {})) if music == 'chiptune' else bed(seconds)
+    music = (sys.argv[3] if len(sys.argv) > 3 else 'lofi')
+    schedule = data.get('schedule', {})
+    if music == 'lofi':
+        ticks = [c['t'] for c in data['cues'] if c['type'] == 'tick' and 'nav' in schedule and schedule['nav'][0] <= c['t'] < schedule['nav'][1]]
+        mix = lofi(seconds, schedule, data.get('beat', .6), data.get('endCard', seconds - 5), ticks[0] if ticks else 0)
+    elif music == 'chiptune':
+        mix = chiptune(seconds, schedule)
+    else:
+        mix = bed(seconds)
     fx = np.zeros(mix.shape[1])
     for c in data['cues']:
         clip = FX[c['type']](c); i = int(c['t'] * SR); j = min(len(fx), i + len(clip)); fx[i:j] += clip[:j - i]
