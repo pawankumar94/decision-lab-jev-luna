@@ -1,0 +1,8 @@
+{
+  "comparator/protocol.json": "3853b5be0376a74c26b4801a90a58efba50664b7aefe80979e86441251d3fb95",
+  "protocol.json": "ca78128db06fd198542798e43a88ded7a721ab23d3a2db2ce16a52c8e7b006a8",
+  "world/protocol.json": "e6442b81982ba042d026ce2c461f5a7f9173bb0fc93a2686584cba51e70fe5ff",
+  "data/dev.json": "73cd7f066d6341fc62eed9ac13c981aebba8366be1f5e30cf852ea783f7e5dad",
+  "data/test.json": "875efdb3870c09886a0405b8a46348cb533b4320334b7ce3c50ab7da76ef5832",
+  "data/challenge.json": "38bb9a39898105084fd8f89fe7f28376abd1a8583f16390b0d895f7e7232bdf5"
+}
