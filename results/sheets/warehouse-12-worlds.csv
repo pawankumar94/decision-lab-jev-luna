@@ -1,0 +1,13 @@
+world,jev,luna_none,luna_medium,bfs,greedy
+barrier_detour-0,loop limit (10 moves),loop limit (11 moves),completed (13 moves),completed (13 moves),loop limit (10 moves)
+barrier_detour-1,loop limit (10 moves),loop limit (12 moves),completed (13 moves),completed (13 moves),loop limit (10 moves)
+barrier_detour-2,completed (13 moves),loop limit (11 moves),completed (13 moves),completed (13 moves),loop limit (9 moves)
+door_closure-0,loop limit (10 moves),completed (13 moves),completed (13 moves),completed (13 moves),loop limit (10 moves)
+door_closure-1,loop limit (10 moves),loop limit (12 moves),completed (13 moves),completed (13 moves),loop limit (10 moves)
+door_closure-2,loop limit (17 moves),loop limit (12 moves),completed (13 moves),completed (13 moves),loop limit (9 moves)
+fragile_cargo-0,completed (9 moves),completed (9 moves),completed (9 moves),completed (9 moves),completed (9 moves)
+fragile_cargo-1,completed (13 moves),completed (9 moves),completed (9 moves),completed (9 moves),completed (9 moves)
+fragile_cargo-2,completed (13 moves),completed (9 moves),completed (9 moves),completed (9 moves),loop limit (8 moves)
+open_aisles-0,completed (7 moves),completed (7 moves),completed (7 moves),completed (7 moves),completed (7 moves)
+open_aisles-1,completed (7 moves),completed (7 moves),completed (7 moves),completed (7 moves),completed (7 moves)
+open_aisles-2,completed (7 moves),completed (7 moves),completed (7 moves),completed (7 moves),completed (7 moves)

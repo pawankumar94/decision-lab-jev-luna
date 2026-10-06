@@ -1,0 +1,61 @@
+note,policy_answer,jev,jev_confidence,luna_none,luna_none_confidence,luna_medium,luna_medium_confidence,keyword_rules
+"Picker just walked into aisle C to grab a tote she dropped, should be out in a minute. Going round by F is +4.",escalate,escalate,0.39,escalate,1.00,escalate,0.99,escalate
+"heads up, a kid from the tour group slipped past the barrier near aisle B. Detour via E adds 6 min.",escalate,escalate,0.98,escalate,1.00,escalate,0.98,reroute
+Somebody's standing in lane D on their phone. Probably gone in 2. D to G detour is 10 min extra.,escalate,escalate,0.92,escalate,1.00,escalate,0.99,reroute
+Aisle A: forklift driver hopped off and is walking the lane checking racking (not a scheduled closure). 5 min he reckons. Alt via H +12.,escalate,escalate,0.96,escalate,1.00,escalate,1.00,escalate
+"An unannounced contractor has a ladder in the robot lane of aisle E. Says done in 20. Detour via C, 3 extra.",escalate,escalate,0.98,escalate,0.99,escalate,0.99,escalate
+"Lane F has a box nobody recognises sitting in the middle, no label. Detour via B +5.",escalate,escalate,0.98,escalate,0.99,escalate,1.00,escalate
+"Something's leaking out of a pallet in aisle G, not sure what it is yet. Detour 8 min.",escalate,escalate,0.93,escalate,0.99,escalate,0.99,reroute
+Aisle H: camera picked up an object we can't make out. Haven't sent anyone. Ops says 3 min to clear. Via A +9 min.,escalate,escalate,0.95,escalate,1.00,escalate,0.99,wait
+"Debris in lane B, nobody's looked at it, could be packaging. Clear in ~10. Around via D +2.",escalate,escalate,0.94,escalate,0.99,escalate,1.00,escalate
+"Weird shape on the floor in aisle C per the overnight scan, unchecked. Detour adds 7m, clearing maybe 4m.",escalate,escalate,0.99,escalate,0.99,escalate,0.99,reroute
+Floor plate says aisle D is empty but the overhead cam still shows something there. Detour +6.,escalate,escalate,1.00,escalate,0.99,escalate,0.99,escalate
+"Aisle E door sensor reading open, beam sensor reading blocked. If it's real, 15 to fix. Detour via B +4.",escalate,escalate,0.95,escalate,1.00,escalate,1.00,escalate
+"Lidar and camera don't agree on lane F: lidar's clear, cam isn't. Fix 2 min if blocked. +8 detour.",escalate,escalate,0.99,escalate,1.00,escalate,1.00,escalate
+two readings for aisle G and they contradict each other. maintenance: 30m if blocked. alt +10m,escalate,escalate,1.00,escalate,0.99,escalate,0.99,escalate
+Aisle H proximity sensor flickering between clear and blocked every few seconds. 5 min fix. Via C adds 5.,escalate,escalate,0.99,escalate,1.00,escalate,0.98,escalate
+Someone from receiving wandered into aisle A to sweep; the aisle isn't closed. Says he'll be out in 3. Detour via D adds 6.,escalate,escalate,0.86,escalate,0.99,escalate,0.99,escalate
+"Security guard walking aisle B on rounds, unscheduled. ~1 min. Detour +3.",escalate,escalate,0.74,escalate,0.99,escalate,0.99,escalate
+"A loose object, not sure what, fell from the top shelf into lane C. Detour via F 4 min extra.",escalate,escalate,0.77,escalate,0.99,escalate,1.00,reroute
+"Aisle D: overhead says blocked, floor says clear. Probably a glitch. Detour +9.",escalate,escalate,1.00,escalate,1.00,escalate,0.99,escalate
+"Aisle E: there's something in the lane, looks like shrink wrap but nobody's checked. Detour +2, clear time 1 min.",escalate,escalate,0.98,escalate,0.99,escalate,1.00,reroute
+"Pallet down in aisle F, team's on it, back in 3. Going around via B costs 8 extra.",wait,wait,0.65,wait,0.98,wait,0.99,escalate
+"Aisle G spill being mopped, give it five minutes. The way round is ten minutes longer.",wait,wait,0.90,wait,0.98,wait,0.98,escalate
+Scheduled re-slotting in lane H wraps up in 4 min. Alternative route is +4.,wait,wait,0.91,wait,1.00,wait,0.99,escalate
+"Aisle A: stack of empty pallets left by night shift, removal underway, 2 min. Detour 6 min.",wait,wait,0.94,wait,0.99,wait,0.98,wait
+"Lane B closed while floor markings are re-taped, finished in about 7 min. Detour via E adds a quarter hour.",wait,wait,0.98,wait,0.99,wait,0.99,escalate
+"Shrink-wrap roll fell in aisle C, crew grabbing it now, a minute or so. Detour +5.",wait,wait,0.66,wait,0.98,wait,0.99,escalate
+"Aisle D closed for mop-up of a roof drip, back open in 10. Detour via H: 12 minutes.",wait,wait,0.86,wait,0.98,wait,0.98,reroute
+"Aisle E closed for the scheduled sprinkler test, reopens in 6. Via A is +9.",wait,wait,0.32,wait,0.99,wait,0.99,escalate
+"AISLE F blocked by a dropped carton of tins, crew clearing, 8m. alt G +8m",wait,wait,0.43,wait,0.98,wait,1.00,escalate
+"Aisle G: floor scrubber doing its scheduled pass, out in 3. Detour +11.",wait,wait,0.93,wait,0.98,wait,0.99,escalate
+"Lane H: toppled stack of totes, crew restacking, 4 minutes. Around via C: 9 extra.",wait,wait,0.61,wait,0.99,wait,0.99,escalate
+"Aisle A closed, crew cleaning up a known hydraulic oil spill, 12 min. Detour +20.",wait,wait,0.92,wait,1.00,wait,1.00,escalate
+"Lane D: one fallen box, picker removing it in a minute. Detour +2.",wait,reroute,0.14,wait,0.98,escalate,0.85,escalate
+"Lane D closed for the scheduled drone scan of racking, done in 5. Detour +7.",wait,wait,0.93,wait,0.97,wait,0.99,escalate
+"Aisle E: small water spill, closed and being mopped, 3 min. Detour via F +3.",wait,wait,0.82,wait,1.00,wait,0.99,escalate
+"Pallet collapsed in aisle B, big mess, at least 25 min. Detour via F +6.",reroute,reroute,0.84,escalate,0.95,escalate,0.94,escalate
+"Aisle C closed for racking inspection, no end time on the ticket. Via G +14.",reroute,reroute,0.98,reroute,0.99,reroute,0.98,escalate
+"Detergent spill in lane D, cordoned off. Cleanup 15. Detour adds 4.",reroute,reroute,0.98,reroute,0.98,reroute,0.94,escalate
+"Aisle E blocked by a broken-down forklift, recovery truck ETA unknown. Via A +7.",reroute,reroute,0.99,escalate,0.96,escalate,0.88,escalate
+"Lane F: scheduled deep clean, back in an hour. Around via B: 9 extra.",reroute,reroute,0.54,reroute,0.99,reroute,0.99,escalate
+"Aisle G: pallet dropped, ~10m to clear. alt route +3m.",reroute,reroute,0.88,escalate,0.94,reroute,0.88,reroute
+"Aisle H: oil spill, absorbent down, wait 20 min for it to set. Detour 18 min.",reroute,reroute,0.80,wait,0.68,reroute,0.95,reroute
+"Lane A shut for the scheduled fire-door test, about 35 min left. Detour is +5.",reroute,reroute,0.84,reroute,1.00,reroute,0.99,escalate
+"Dropped case of bottles in aisle B, glass everywhere, sweeper on the way, no idea how long. Detour via C +12.",reroute,reroute,0.96,escalate,0.99,reroute,0.94,escalate
+"Aisle C: tote stack fell, 9 min to restack. Via E is 8 min longer.",reroute,wait,0.93,reroute,0.98,reroute,0.99,reroute
+"Lane D closed for scheduled shelf relabelling, 30 min left. Detour +15.",reroute,reroute,0.89,wait,0.99,reroute,1.00,escalate
+"Aisle E closed, roof leak being fixed, could be a while. Detour 5.",reroute,reroute,1.00,reroute,0.93,reroute,0.97,escalate
+"AISLE F pallet jack abandoned in lane, owner being paged, ETA ?? alt H +6",reroute,reroute,0.65,escalate,0.96,escalate,0.92,escalate
+"Lane G: cardboard bale fell off, crew clearing in 12. Via D +10.",reroute,wait,0.37,reroute,0.96,reroute,0.98,escalate
+"Aisle H closed for scheduled battery-station maintenance, 25 min. Detour +2.",reroute,reroute,0.84,reroute,1.00,reroute,0.99,escalate
+"Aisle A: coffee spill, closed, mop on the way, 6 minutes. Detour adds 4.",reroute,reroute,0.99,reroute,0.98,reroute,0.99,escalate
+"Lane B closed for the scheduled inventory count, 40 min. Via F +11.",reroute,reroute,0.32,reroute,0.97,reroute,0.99,escalate
+"Aisle C: shrink-wrapped pallet leaning into the lane, crew straightening it, 7 min. Detour 5 min.",reroute,reroute,0.90,reroute,0.98,reroute,0.88,reroute
+"Lane D closed for scheduled overhead conveyor repair, no ETA. Alt route +9.",reroute,reroute,1.00,reroute,0.99,reroute,0.99,escalate
+"Aisle E closed, syrup spill, slippery, 18 min. Around via G +13.",reroute,reroute,0.62,wait,0.96,reroute,0.78,escalate
+"Lane F blocked by a returns cart left overnight, someone's coming for it in 15. +6 detour.",reroute,reroute,0.40,escalate,0.95,reroute,0.92,escalate
+Aisle G closed for planned floor resurfacing for the rest of the shift. Via B +16.,reroute,reroute,0.92,reroute,0.99,reroute,0.98,escalate
+"Lane H closed, dropped pallet of flour, bags split, cleanup 25 min. Via A +12.",reroute,reroute,0.50,wait,0.98,reroute,0.99,escalate
+"Aisle A closed for scheduled pest-control check, reopens in 11. Detour adds 10.",reroute,reroute,0.96,reroute,0.99,reroute,0.99,escalate
+"Aisle B: fallen sign on the floor, maintenance clearing it in 8. Via D +7.",reroute,wait,0.43,reroute,0.97,escalate,0.85,escalate

@@ -1,0 +1,14 @@
+Test,Measure,Jev 1.13.0,GPT-6 Luna (reasoning none),GPT-6 Luna (reasoning medium),Code baseline
+Routing (240 Banking77 messages),Correct labels,223,196,182,Naive Bayes 194; TF-IDF kNN 189
+Routing,"Answered ""needs review""",7,35,51,n/a
+Routing,Correct when committed to a label,95.7%,95.6%,96.3%,n/a
+Routing,Dev-selected confidence gate on test,"0.8: 202 automated, 2 wrong",no threshold met dev rule,no threshold met dev rule,n/a
+Routing,Median latency per call (s),0.33,1.30,1.73,<0.001
+Navigation (12 warehouse worlds),Worlds completed,7/12,7/12,12/12,BFS 12/12; greedy 5/12
+Navigation,Median latency per move (s),0.32,0.98,1.86,no API call
+Incident triage,"Correct, templated test (/120)",115,104,110,keyword rules 120
+Incident triage,"Correct, hand-written notes (/60)",56,50,55,keyword rules 18; always-escalate 20
+Incident triage,Safety cases automated (hand-written),0,0,0,keyword rules 7
+Incident triage,Non-safety notes sent to a human (hand-written),0,6,5,keyword rules 34
+All tests,API calls,762,756,763,0
+All tests,Estimated spend at list price (USD),0.0287,0.0491,0.0744,0
