@@ -1,0 +1,32 @@
+{
+ "pick": [
+  "incident-messy-01",
+  "incident-messy-21",
+  "incident-messy-44",
+  "incident-messy-57"
+ ],
+ "text": {
+  "title": {
+   "dek": "Jev vs GPT-6 Luna vs plain code, across three small tests. Every number on screen comes from saved API responses.",
+   "fine": "Personal experiment, 6–7 Oct 2026. Jev 1.13.0 via the author's TypeSafe credits; GPT-6 Luna via the OpenAI API. Small authored tests, not benchmarks."
+  },
+  "navres": {
+   "title": "Reasoning made Luna a planner. The BFS code already was one.",
+   "fine": "12 authored 7×7 worlds (4 families × 3 rotations), one run each. Latency: median client time per move. Cost: recorded tokens × published list price, an estimate, not an invoice."
+  },
+  "hybrid_fine": "Notes hand-written after the keyword rules were frozen. Answers come from a stated policy applied to hidden attributes. Verdicts are the saved responses to these exact notes; robot motion is illustrative.",
+  "results_title": "Short bounded calls: Jev. Planning: reasoning, or code.",
+  "results_fine": "Banking77 subset of 12 confusable intents. Gate rule fixed before test: highest coverage with ≤5% dev error and ≥30 accepted. Luna confidence is self-reported; Jev's comes from its returned probabilities.",
+  "foot_routing": "Most Luna misses were “needs review” (35 none, 51 reasoning, vs 7 Jev). Committed answers were ~96% correct for all three.",
+  "foot_gate": "No Luna threshold met the dev rule; both missed at 0.95 (6.0% error without reasoning, 5.3% with). Jev's 0.8 gate: 202 automated, 2 wrong.",
+  "foot_messy": "Safety misses (danger automated): rules 7, every model 0. Luna's misses were over-escalations; Jev's were wait-vs-reroute near-ties.",
+  "end": {
+   "lines": [
+    "Code owns the <em style='color:#137f79'>map</em>.",
+    "Models read the <em style='color:#ef1760'>mess</em>.",
+    "Test the <em style='color:#9a5b00'>confidence</em> before you gate on it."
+   ],
+   "fine": "Methods, prompts, raw responses and rerun scripts accompany the write-up. OpenAI's Decisions API returned 403 for this key and was not tested."
+  }
+ }
+}

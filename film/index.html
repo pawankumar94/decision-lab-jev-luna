@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920,height=1080">
+<title>Decision Lab film</title>
+<link rel="icon" href="data:,">
+<style>
+  :root{--ink:#142027;--muted:#5f6b72;--paper:#f7f5f0;--card:#ffffff;--line:#dcdcd5;
+    --jev:#ef1760;--none:#4f63d8;--medium:#8a3ffc;--bfs:#137f79;--rules:#8a949b;--amber:#e39b1b;--good:#137f79;--bad:#d4204f}
+  *{box-sizing:border-box;margin:0}
+  html,body{width:1920px;height:1080px;overflow:hidden;background:var(--paper);color:var(--ink);
+    font-family:"SF Pro Display",-apple-system,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  body::before{content:"";position:absolute;inset:0;background:radial-gradient(circle,#dedcd3 1.4px,transparent 1.5px) 0 0/34px 34px;opacity:.55}
+  .scene{position:absolute;inset:0;padding:64px 88px;visibility:hidden}
+  .eyebrow{font-size:20px;letter-spacing:4px;text-transform:uppercase;font-weight:700;color:var(--muted)}
+  .h1{font-size:112px;line-height:1.02;letter-spacing:-4px;font-weight:800}
+  .h2{font-size:60px;line-height:1.05;letter-spacing:-2px;font-weight:800;margin-top:14px}
+  .dek{font-size:28px;line-height:1.4;color:var(--muted);margin-top:18px;max-width:1500px}
+  .fine{position:absolute;left:88px;right:88px;bottom:40px;font-size:19px;line-height:1.45;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+  .pill{display:inline-block;font-size:18px;font-weight:700;padding:7px 14px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+  .swatch{display:inline-block;width:14px;height:14px;border-radius:4px;margin-right:10px;vertical-align:-1px}
+  /* title */
+  #title .h1 span{display:block}
+  #title canvas{position:absolute;right:20px;top:140px;width:800px;height:800px}
+  #title .copy{position:relative;z-index:2;max-width:960px;margin-top:150px}
+  /* navigator boards */
+  .boards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:34px}
+  .board{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;position:relative}
+  .board .head{padding:18px 20px 14px;border-bottom:1px solid #eee;height:92px}
+  .board .name{font-size:27px;font-weight:800;white-space:nowrap}
+  .board .sub{font-size:17px;color:var(--muted);margin-top:6px;white-space:nowrap}
+  .board canvas{display:block;width:100%;height:500px}
+  .board .read{padding:14px 20px;border-top:1px solid #eee;height:104px;display:grid;grid-template-columns:1fr auto;gap:10px}
+  .board .lab{font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+  .board .act{font:700 25px ui-monospace,Menlo,monospace;margin-top:6px;white-space:nowrap}
+  .board .conf{font-size:30px;font-weight:800;text-align:right;margin-top:6px}
+  .stamp{position:absolute;left:50%;top:300px;transform:translate(-50%,-50%) rotate(-6deg);font-size:34px;font-weight:900;letter-spacing:2px;
+    padding:10px 22px;border:5px solid;border-radius:12px;background:#fffffff0;white-space:nowrap}
+  .stamp.good{color:var(--good)}.stamp.bad{color:var(--bad)}
+  .doorflag{position:absolute;left:88px;top:300px;font-size:22px;font-weight:800;color:var(--jev)}
+  /* bars */
+  .bars{margin-top:46px;display:grid;gap:26px;max-width:1500px}
+  .bar{display:grid;grid-template-columns:330px 1fr 440px;align-items:center;gap:26px}
+  .bar .who{font-size:30px;font-weight:800;white-space:nowrap}
+  .bar .track{height:58px;background:#ebe9e1;border-radius:10px;overflow:hidden}
+  .bar .fill{height:100%;border-radius:10px;transform-origin:left center}
+  .bar .val{font-size:34px;font-weight:800;white-space:nowrap}.bar .val small{display:block;font-size:19px;color:var(--muted);font-weight:500;margin-top:4px}
+  /* hybrid */
+  #hybrid canvas{position:absolute;left:60px;top:205px;width:1060px;height:740px}
+  .note{position:absolute;left:1150px;top:205px;width:680px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 30px;min-height:200px}
+  .note .lab{font-size:16px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .note .text{font:500 27px/1.42 ui-monospace,Menlo,monospace;margin-top:12px;color:var(--ink)}
+  .verdicts{position:absolute;left:1150px;top:452px;width:680px;display:grid;gap:12px}
+  .verdict{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 22px;display:grid;grid-template-columns:210px 1fr 150px;align-items:center;gap:14px}
+  .verdict .who{font-size:23px;font-weight:800;white-space:nowrap}
+  .verdict .choice{font:700 25px ui-monospace,Menlo,monospace;white-space:nowrap}
+  .verdict .gate{font-size:17px;font-weight:800;text-align:center;padding:8px 6px;border-radius:8px;white-space:nowrap}
+  .gate.g-auto{background:#e3f4f0;color:var(--good)}.gate.g-human{background:#fff1d9;color:#9a5b00}.gate.g-wrong{background:#ffe6ec;color:var(--bad)}
+  .policy{position:absolute;left:1150px;top:885px;width:680px;font-size:21px;color:var(--muted)}
+  .policy b{color:var(--ink)}
+  #human-tag{position:absolute;font-size:22px;font-weight:800;color:#9a5b00;background:#fff1d9;border-radius:10px;padding:8px 14px;white-space:nowrap}
+  /* results */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:40px}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 30px;height:640px;position:relative}
+  .panel h3{font-size:30px;letter-spacing:-.5px}.panel .q{font-size:19px;color:var(--muted);margin-top:8px;height:56px}
+  .rows{margin-top:24px;display:grid;gap:15px}
+  .row{display:grid;grid-template-columns:170px 1fr 110px;align-items:center;gap:14px}
+  .row .who{font-size:21px;font-weight:700;white-space:nowrap}
+  .row .track{height:30px;background:#efede6;border-radius:6px;overflow:hidden}.row .fill{height:100%;transform-origin:left center;border-radius:6px}
+  .row .num{font-size:21px;font-weight:800;text-align:right;white-space:nowrap}
+  .panel .foot{position:absolute;left:30px;right:30px;bottom:24px;font-size:17px;color:var(--muted);line-height:1.4}
+  /* end */
+  #end canvas{position:absolute;right:20px;top:170px;width:820px;height:760px}
+  #end .endcopy{position:relative;z-index:2;max-width:940px}
+  #end .lines{margin-top:150px;display:grid;gap:34px}
+  #end .line{font-size:58px;font-weight:800;letter-spacing:-2px;line-height:1.12}
+  #end .line em{font-style:normal}
+  #end-card{position:absolute;inset:0;background:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;visibility:hidden;z-index:5}
+  #end-card .cardq{font-size:92px;font-weight:800;letter-spacing:-3px;line-height:1.05}
+  #end-card .eyebrow{margin-bottom:34px}
+  #end-card .stats{display:flex;gap:18px;margin-top:46px}
+  #end-card .stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 26px;min-width:250px}
+  #end-card .stat b{display:block;font-size:44px;letter-spacing:-1px}#end-card .stat span{font-size:19px;color:var(--muted)}
+  #end-card .cta{margin-top:46px;font-size:28px;font-weight:700}
+  #end-card .by{margin-top:12px;font-size:22px;color:var(--muted)}
+
+</style>
+</head>
+<body>
+<section class="scene" id="title">
+  <canvas id="title-canvas"></canvas>
+  <div class="copy">
+    <div class="eyebrow fit">Decision Lab · Experiment 02</div>
+    <div class="h1 fit" style="margin-top:28px"><span>When should</span><span>an AI agent</span><span style="color:var(--jev)">ask for help?</span></div>
+    <div class="dek fit" id="title-dek"></div>
+  </div>
+  <div class="fine fit" id="title-fine"></div>
+</section>
+
+<section class="scene" id="nav">
+  <div class="eyebrow fit">Test 1 · Let the model drive</div>
+  <div class="h2 fit">One API call per move. The aisle closes after move two.</div>
+  <div class="boards" id="nav-boards"></div>
+  <div class="fine fit" id="nav-fine"></div>
+</section>
+
+<section class="scene" id="navres">
+  <div class="eyebrow fit">Test 1 · All 12 warehouse worlds</div>
+  <div class="h2 fit" id="navres-title"></div>
+  <div class="bars" id="navres-bars"></div>
+  <div class="fine fit" id="navres-fine"></div>
+</section>
+
+<section class="scene" id="hybrid">
+  <div class="eyebrow fit">Test 2 · Let code drive. Ask the model only to read the note.</div>
+  <div class="h2 fit" style="font-size:52px">Planner owns the route. Model triages. A gate escalates.</div>
+  <canvas id="hybrid-canvas"></canvas>
+  <div class="note"><div class="lab fit" id="note-lab">Incident note</div><div class="text" id="note-text"></div></div>
+  <div class="verdicts" id="verdicts"></div>
+  <div class="policy fit" id="policy"></div>
+  <div class="human" id="human-tag">Operator review</div>
+  <div class="fine fit" id="hybrid-fine"></div>
+</section>
+
+<section class="scene" id="results">
+  <div class="eyebrow fit">What the numbers say</div>
+  <div class="h2 fit" id="results-title"></div>
+  <div class="grid3" id="panels"></div>
+  <div class="fine fit" id="results-fine"></div>
+</section>
+
+<section class="scene" id="end">
+  <canvas id="end-canvas"></canvas>
+  <div class="endcopy">
+    <div class="eyebrow fit">The boundary</div>
+    <div class="lines" id="end-lines"></div>
+  </div>
+  <div class="fine fit" id="end-fine"></div>
+  <div id="end-card">
+    <div class="eyebrow fit">Decision Lab · Experiment 02</div>
+    <div class="cardq fit">When should an AI agent</div>
+    <div class="cardq fit" style="color:var(--jev)">ask for help?</div>
+    <div class="stats" id="end-stats"></div>
+    <div class="cta fit">Full write-up, prompts and raw responses on Medium</div>
+    <div class="by fit">Pawan Kumar</div>
+  </div>
+</section>
+
+<script src="vendor/gsap.min.js"></script>
+<script type="module" src="film.js"></script>
+</body>
+</html>

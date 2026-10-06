@@ -1,0 +1,1733 @@
+{
+ "title": {
+  "dek": "Jev vs GPT-6 Luna vs plain code, across three small tests. Every number on screen comes from saved API responses.",
+  "fine": "Personal experiment, 6\u20137 Oct 2026. Jev 1.13.0 via the author's TypeSafe credits; GPT-6 Luna via the OpenAI API. Small authored tests, not benchmarks."
+ },
+ "nav": {
+  "episode": "door_closure-1",
+  "boards": [
+   {
+    "key": "jev",
+    "name": "Jev",
+    "sub": "Decision model \u00b7 typed choice",
+    "signal": "Confidence",
+    "color": "#ef1760",
+    "record": {
+     "episode": {
+      "id": "door_closure-1",
+      "family": "door_closure",
+      "orientation": 1,
+      "size": 7,
+      "start": [
+       3,
+       0
+      ],
+      "goal": [
+       3,
+       6
+      ],
+      "walls": [
+       [
+        5,
+        3
+       ],
+       [
+        4,
+        3
+       ],
+       [
+        2,
+        3
+       ],
+       [
+        1,
+        3
+       ],
+       [
+        0,
+        3
+       ]
+      ],
+      "rough": [],
+      "cargo": "standard",
+      "event": {
+       "at_action": 2,
+       "close_cell": [
+        3,
+        3
+       ]
+      },
+      "max_actions": 32
+     },
+     "outcome": "loop_limit",
+     "completed": false,
+     "trace": [
+      {
+       "state": {
+        "position": [
+         3,
+         0
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "###.##.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": false
+       },
+       "after": [
+        3,
+        1
+       ],
+       "action": "move_south",
+       "confidence": 0.44
+      },
+      {
+       "state": {
+        "position": [
+         3,
+         1
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "###.##.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": false
+       },
+       "after": [
+        3,
+        2
+       ],
+       "action": "move_south",
+       "confidence": 0.4
+      },
+      {
+       "state": {
+        "position": [
+         3,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        4,
+        2
+       ],
+       "action": "move_east",
+       "confidence": 0.62
+      },
+      {
+       "state": {
+        "position": [
+         4,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        3,
+        2
+       ],
+       "action": "move_west",
+       "confidence": 0.73
+      },
+      {
+       "state": {
+        "position": [
+         3,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        4,
+        2
+       ],
+       "action": "move_east",
+       "confidence": 0.52
+      },
+      {
+       "state": {
+        "position": [
+         4,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        3,
+        2
+       ],
+       "action": "move_west",
+       "confidence": 0.66
+      },
+      {
+       "state": {
+        "position": [
+         3,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        4,
+        2
+       ],
+       "action": "move_east",
+       "confidence": 0.39
+      },
+      {
+       "state": {
+        "position": [
+         4,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        3,
+        2
+       ],
+       "action": "move_west",
+       "confidence": 0.47
+      },
+      {
+       "state": {
+        "position": [
+         3,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        4,
+        2
+       ],
+       "action": "move_east",
+       "confidence": 0.55
+      },
+      {
+       "state": {
+        "position": [
+         4,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        3,
+        2
+       ],
+       "action": "move_west",
+       "confidence": 0.7
+      }
+     ]
+    }
+   },
+   {
+    "key": "none",
+    "name": "Luna \u00b7 no reasoning",
+    "sub": "General LLM \u00b7 effort none",
+    "signal": "Self-reported",
+    "color": "#4f63d8",
+    "record": {
+     "episode": {
+      "id": "door_closure-1",
+      "family": "door_closure",
+      "orientation": 1,
+      "size": 7,
+      "start": [
+       3,
+       0
+      ],
+      "goal": [
+       3,
+       6
+      ],
+      "walls": [
+       [
+        5,
+        3
+       ],
+       [
+        4,
+        3
+       ],
+       [
+        2,
+        3
+       ],
+       [
+        1,
+        3
+       ],
+       [
+        0,
+        3
+       ]
+      ],
+      "rough": [],
+      "cargo": "standard",
+      "event": {
+       "at_action": 2,
+       "close_cell": [
+        3,
+        3
+       ]
+      },
+      "max_actions": 32
+     },
+     "outcome": "loop_limit",
+     "completed": false,
+     "trace": [
+      {
+       "state": {
+        "position": [
+         3,
+         0
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "###.##.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": false
+       },
+       "after": [
+        3,
+        1
+       ],
+       "action": "move_south",
+       "confidence": 0.99
+      },
+      {
+       "state": {
+        "position": [
+         3,
+         1
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "###.##.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": false
+       },
+       "after": [
+        3,
+        2
+       ],
+       "action": "move_south",
+       "confidence": 0.99
+      },
+      {
+       "state": {
+        "position": [
+         3,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        4,
+        2
+       ],
+       "action": "move_east",
+       "confidence": 0.99
+      },
+      {
+       "state": {
+        "position": [
+         4,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        3,
+        2
+       ],
+       "action": "move_west",
+       "confidence": 0.99
+      },
+      {
+       "state": {
+        "position": [
+         3,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        4,
+        2
+       ],
+       "action": "move_east",
+       "confidence": 0.99
+      },
+      {
+       "state": {
+        "position": [
+         4,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        4,
+        1
+       ],
+       "action": "move_north",
+       "confidence": 0.98
+      },
+      {
+       "state": {
+        "position": [
+         4,
+         1
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        4,
+        2
+       ],
+       "action": "move_south",
+       "confidence": 0.96
+      },
+      {
+       "state": {
+        "position": [
+         4,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        3,
+        2
+       ],
+       "action": "move_west",
+       "confidence": 0.99
+      },
+      {
+       "state": {
+        "position": [
+         3,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        3,
+        1
+       ],
+       "action": "move_north",
+       "confidence": 0.99
+      },
+      {
+       "state": {
+        "position": [
+         3,
+         1
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        3,
+        2
+       ],
+       "action": "move_south",
+       "confidence": 0.99
+      },
+      {
+       "state": {
+        "position": [
+         3,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        4,
+        2
+       ],
+       "action": "move_east",
+       "confidence": 0.97
+      },
+      {
+       "state": {
+        "position": [
+         4,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        3,
+        2
+       ],
+       "action": "move_west",
+       "confidence": 0.99
+      }
+     ]
+    }
+   },
+   {
+    "key": "medium",
+    "name": "Luna \u00b7 reasoning",
+    "sub": "General LLM \u00b7 effort medium",
+    "signal": "Self-reported",
+    "color": "#8a3ffc",
+    "record": {
+     "episode": {
+      "id": "door_closure-1",
+      "family": "door_closure",
+      "orientation": 1,
+      "size": 7,
+      "start": [
+       3,
+       0
+      ],
+      "goal": [
+       3,
+       6
+      ],
+      "walls": [
+       [
+        5,
+        3
+       ],
+       [
+        4,
+        3
+       ],
+       [
+        2,
+        3
+       ],
+       [
+        1,
+        3
+       ],
+       [
+        0,
+        3
+       ]
+      ],
+      "rough": [],
+      "cargo": "standard",
+      "event": {
+       "at_action": 2,
+       "close_cell": [
+        3,
+        3
+       ]
+      },
+      "max_actions": 32
+     },
+     "outcome": "completed",
+     "completed": true,
+     "trace": [
+      {
+       "state": {
+        "position": [
+         3,
+         0
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "###.##.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": false
+       },
+       "after": [
+        3,
+        1
+       ],
+       "action": "move_south",
+       "confidence": 1.0
+      },
+      {
+       "state": {
+        "position": [
+         3,
+         1
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "###.##.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": false
+       },
+       "after": [
+        3,
+        2
+       ],
+       "action": "move_south",
+       "confidence": 1.0
+      },
+      {
+       "state": {
+        "position": [
+         3,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        4,
+        2
+       ],
+       "action": "move_east",
+       "confidence": 0.99
+      },
+      {
+       "state": {
+        "position": [
+         4,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        5,
+        2
+       ],
+       "action": "move_east",
+       "confidence": 0.99
+      },
+      {
+       "state": {
+        "position": [
+         5,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        6,
+        2
+       ],
+       "action": "move_east",
+       "confidence": 1.0
+      },
+      {
+       "state": {
+        "position": [
+         6,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        6,
+        3
+       ],
+       "action": "move_south",
+       "confidence": 0.99
+      },
+      {
+       "state": {
+        "position": [
+         6,
+         3
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        6,
+        4
+       ],
+       "action": "move_south",
+       "confidence": 1.0
+      },
+      {
+       "state": {
+        "position": [
+         6,
+         4
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        6,
+        5
+       ],
+       "action": "move_south",
+       "confidence": 0.99
+      },
+      {
+       "state": {
+        "position": [
+         6,
+         5
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        6,
+        6
+       ],
+       "action": "move_south",
+       "confidence": 0.99
+      },
+      {
+       "state": {
+        "position": [
+         6,
+         6
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        5,
+        6
+       ],
+       "action": "move_west",
+       "confidence": 1.0
+      },
+      {
+       "state": {
+        "position": [
+         5,
+         6
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        4,
+        6
+       ],
+       "action": "move_west",
+       "confidence": 1.0
+      },
+      {
+       "state": {
+        "position": [
+         4,
+         6
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        3,
+        6
+       ],
+       "action": "move_west",
+       "confidence": 1.0
+      },
+      {
+       "state": {
+        "position": [
+         3,
+         6
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        3,
+        6
+       ],
+       "action": "finish",
+       "confidence": 1.0
+      }
+     ]
+    }
+   },
+   {
+    "key": "bfs",
+    "name": "BFS planner",
+    "sub": "Plain code \u00b7 replans each step",
+    "signal": "Confidence",
+    "color": "#137f79",
+    "record": {
+     "episode": {
+      "id": "door_closure-1",
+      "family": "door_closure",
+      "orientation": 1,
+      "size": 7,
+      "start": [
+       3,
+       0
+      ],
+      "goal": [
+       3,
+       6
+      ],
+      "walls": [
+       [
+        5,
+        3
+       ],
+       [
+        4,
+        3
+       ],
+       [
+        2,
+        3
+       ],
+       [
+        1,
+        3
+       ],
+       [
+        0,
+        3
+       ]
+      ],
+      "rough": [],
+      "cargo": "standard",
+      "event": {
+       "at_action": 2,
+       "close_cell": [
+        3,
+        3
+       ]
+      },
+      "max_actions": 32
+     },
+     "outcome": "completed",
+     "completed": true,
+     "trace": [
+      {
+       "state": {
+        "position": [
+         3,
+         0
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "###.##.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": false
+       },
+       "after": [
+        3,
+        1
+       ],
+       "action": "move_south",
+       "confidence": null
+      },
+      {
+       "state": {
+        "position": [
+         3,
+         1
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "###.##.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": false
+       },
+       "after": [
+        3,
+        2
+       ],
+       "action": "move_south",
+       "confidence": null
+      },
+      {
+       "state": {
+        "position": [
+         3,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        4,
+        2
+       ],
+       "action": "move_east",
+       "confidence": null
+      },
+      {
+       "state": {
+        "position": [
+         4,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        5,
+        2
+       ],
+       "action": "move_east",
+       "confidence": null
+      },
+      {
+       "state": {
+        "position": [
+         5,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        6,
+        2
+       ],
+       "action": "move_east",
+       "confidence": null
+      },
+      {
+       "state": {
+        "position": [
+         6,
+         2
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        6,
+        3
+       ],
+       "action": "move_south",
+       "confidence": null
+      },
+      {
+       "state": {
+        "position": [
+         6,
+         3
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        6,
+        4
+       ],
+       "action": "move_south",
+       "confidence": null
+      },
+      {
+       "state": {
+        "position": [
+         6,
+         4
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        6,
+        5
+       ],
+       "action": "move_south",
+       "confidence": null
+      },
+      {
+       "state": {
+        "position": [
+         6,
+         5
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        6,
+        6
+       ],
+       "action": "move_south",
+       "confidence": null
+      },
+      {
+       "state": {
+        "position": [
+         6,
+         6
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        5,
+        6
+       ],
+       "action": "move_west",
+       "confidence": null
+      },
+      {
+       "state": {
+        "position": [
+         5,
+         6
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        4,
+        6
+       ],
+       "action": "move_west",
+       "confidence": null
+      },
+      {
+       "state": {
+        "position": [
+         4,
+         6
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        3,
+        6
+       ],
+       "action": "move_west",
+       "confidence": null
+      },
+      {
+       "state": {
+        "position": [
+         3,
+         6
+        ],
+        "map": [
+         ".......",
+         ".......",
+         ".......",
+         "######.",
+         ".......",
+         ".......",
+         "......."
+        ],
+        "door": true
+       },
+       "after": [
+        3,
+        6
+       ],
+       "action": "finish",
+       "confidence": null
+      }
+     ]
+    }
+   }
+  ],
+  "fine": "Recorded replay of saved responses for the closing-aisle world. Models receive the map as text, not images. Motion is interpolated for readability; it does not reproduce API latency. No physical robot.",
+  "cam": [
+   -12,
+   12,
+   10
+  ]
+ },
+ "navres": {
+  "rows": [
+   {
+    "name": "BFS planner",
+    "color": "#137f79",
+    "completed": 12,
+    "n": 12,
+    "detail": "plain code"
+   },
+   {
+    "name": "Luna \u00b7 reasoning",
+    "color": "#8a3ffc",
+    "completed": 12,
+    "n": 12,
+    "detail": "1.86s per move \u00b7 $1.38 per 1k worlds"
+   },
+   {
+    "name": "Jev",
+    "color": "#ef1760",
+    "completed": 7,
+    "n": 12,
+    "detail": "0.32s per move \u00b7 $0.46 per 1k worlds"
+   },
+   {
+    "name": "Luna \u00b7 no reasoning",
+    "color": "#4f63d8",
+    "completed": 7,
+    "n": 12,
+    "detail": "0.98s per move \u00b7 $0.94 per 1k worlds"
+   },
+   {
+    "name": "Greedy rule",
+    "color": "#8a949b",
+    "completed": 5,
+    "n": 12,
+    "detail": "plain code"
+   }
+  ],
+  "title": "Reasoning made Luna a planner. The BFS code already was one.",
+  "fine": "12 authored 7\u00d77 worlds (4 families \u00d7 3 rotations), one run each. Latency: median client time per move. Cost: recorded tokens \u00d7 published list price, an estimate, not an invoice."
+ },
+ "hybrid": {
+  "incidents": [
+   {
+    "id": "incident-messy-01",
+    "text": "heads up, a kid from the tour group slipped past the barrier near aisle B. Detour via E adds 6 min.",
+    "gold": "escalate",
+    "behavior": "escalate",
+    "visual": "person",
+    "split_label": "not seen when thresholds were chosen",
+    "models": [
+     {
+      "name": "Jev",
+      "color": "#ef1760",
+      "choice": "escalate",
+      "confidence": 0.98,
+      "gate": "human"
+     },
+     {
+      "name": "Luna (none)",
+      "color": "#4f63d8",
+      "choice": "escalate",
+      "confidence": 1.0,
+      "gate": "human"
+     },
+     {
+      "name": "Luna (medium)",
+      "color": "#8a3ffc",
+      "choice": "escalate",
+      "confidence": 0.98,
+      "gate": "human"
+     },
+     {
+      "name": "Keyword rules",
+      "color": "#8a949b",
+      "choice": "reroute",
+      "confidence": null,
+      "gate": "wrong"
+     }
+    ]
+   },
+   {
+    "id": "incident-messy-21",
+    "text": "Aisle G spill being mopped, give it five minutes. The way round is ten minutes longer.",
+    "gold": "wait",
+    "behavior": "wait",
+    "visual": "spill",
+    "split_label": "not seen when thresholds were chosen",
+    "models": [
+     {
+      "name": "Jev",
+      "color": "#ef1760",
+      "choice": "wait",
+      "confidence": 0.9,
+      "gate": "auto"
+     },
+     {
+      "name": "Luna (none)",
+      "color": "#4f63d8",
+      "choice": "wait",
+      "confidence": 0.98,
+      "gate": "auto"
+     },
+     {
+      "name": "Luna (medium)",
+      "color": "#8a3ffc",
+      "choice": "wait",
+      "confidence": 0.98,
+      "gate": "auto"
+     },
+     {
+      "name": "Keyword rules",
+      "color": "#8a949b",
+      "choice": "escalate",
+      "confidence": null,
+      "gate": "human"
+     }
+    ]
+   },
+   {
+    "id": "incident-messy-44",
+    "text": "Aisle C: tote stack fell, 9 min to restack. Via E is 8 min longer.",
+    "gold": "reroute",
+    "behavior": "reroute",
+    "visual": "crate",
+    "split_label": "not seen when thresholds were chosen",
+    "models": [
+     {
+      "name": "Jev",
+      "color": "#ef1760",
+      "choice": "wait",
+      "confidence": 0.93,
+      "gate": "wrong"
+     },
+     {
+      "name": "Luna (none)",
+      "color": "#4f63d8",
+      "choice": "reroute",
+      "confidence": 0.98,
+      "gate": "auto"
+     },
+     {
+      "name": "Luna (medium)",
+      "color": "#8a3ffc",
+      "choice": "reroute",
+      "confidence": 0.99,
+      "gate": "auto"
+     },
+     {
+      "name": "Keyword rules",
+      "color": "#8a949b",
+      "choice": "reroute",
+      "confidence": null,
+      "gate": "auto"
+     }
+    ]
+   },
+   {
+    "id": "incident-messy-57",
+    "text": "Lane H closed, dropped pallet of flour, bags split, cleanup 25 min. Via A +12.",
+    "gold": "reroute",
+    "behavior": "reroute",
+    "visual": "spill",
+    "split_label": "not seen when thresholds were chosen",
+    "models": [
+     {
+      "name": "Jev",
+      "color": "#ef1760",
+      "choice": "reroute",
+      "confidence": 0.5,
+      "gate": "auto"
+     },
+     {
+      "name": "Luna (none)",
+      "color": "#4f63d8",
+      "choice": "wait",
+      "confidence": 0.98,
+      "gate": "wrong"
+     },
+     {
+      "name": "Luna (medium)",
+      "color": "#8a3ffc",
+      "choice": "reroute",
+      "confidence": 0.99,
+      "gate": "auto"
+     },
+     {
+      "name": "Keyword rules",
+      "color": "#8a949b",
+      "choice": "escalate",
+      "confidence": null,
+      "gate": "human"
+     }
+    ]
+   }
+  ],
+  "fine": "Notes hand-written after the keyword rules were frozen. Answers come from a stated policy applied to hidden attributes. Verdicts are the saved responses to these exact notes; robot motion is illustrative."
+ },
+ "results": {
+  "title": "Short bounded calls: Jev. Planning: reasoning, or code.",
+  "fine": "Banking77 subset of 12 confusable intents. Gate rule fixed before test: highest coverage with \u22645% dev error and \u226530 accepted. Luna confidence is self-reported; Jev's comes from its returned probabilities.",
+  "panels": [
+   {
+    "h": "Routing 240 bank messages",
+    "q": "Correct intent on held-out Banking77 test messages",
+    "rows": [
+     {
+      "name": "Jev",
+      "color": "#ef1760",
+      "value": 92.91666666666667,
+      "label": "223/240"
+     },
+     {
+      "name": "Luna (none)",
+      "color": "#4f63d8",
+      "value": 81.66666666666667,
+      "label": "196/240"
+     },
+     {
+      "name": "Luna (medium)",
+      "color": "#8a3ffc",
+      "value": 75.83333333333333,
+      "label": "182/240"
+     },
+     {
+      "name": "Naive Bayes",
+      "color": "#a9b1b6",
+      "value": 80.83333333333333,
+      "label": "194/240"
+     },
+     {
+      "name": "TF-IDF kNN",
+      "color": "#c3c9cc",
+      "value": 78.75,
+      "label": "189/240"
+     }
+    ],
+    "max": 100,
+    "foot": "Most Luna misses were \u201cneeds review\u201d (35 none, 51 reasoning, vs 7 Jev). Committed answers were ~96% correct for all three."
+   },
+   {
+    "h": "Confidence gate",
+    "q": "Messages automated at the threshold chosen on dev; errors among them",
+    "rows": [
+     {
+      "name": "Jev",
+      "color": "#ef1760",
+      "value": 84.16666666666667,
+      "label": "202 \u00b7 2 err"
+     },
+     {
+      "name": "Luna (none)",
+      "color": "#4f63d8",
+      "value": 0,
+      "label": "no gate"
+     },
+     {
+      "name": "Luna (medium)",
+      "color": "#8a3ffc",
+      "value": 0,
+      "label": "no gate"
+     }
+    ],
+    "max": 100,
+    "foot": "No Luna threshold met the dev rule; both missed at 0.95 (6.0% error without reasoning, 5.3% with). Jev's 0.8 gate: 202 automated, 2 wrong."
+   },
+   {
+    "h": "60 hand-written incident notes",
+    "q": "Correct wait / reroute / escalate under the stated policy",
+    "rows": [
+     {
+      "name": "Jev",
+      "color": "#ef1760",
+      "value": 56,
+      "label": "56/60"
+     },
+     {
+      "name": "Luna (none)",
+      "color": "#4f63d8",
+      "value": 50,
+      "label": "50/60"
+     },
+     {
+      "name": "Luna (medium)",
+      "color": "#8a3ffc",
+      "value": 55,
+      "label": "55/60"
+     },
+     {
+      "name": "Keyword rules",
+      "color": "#8a949b",
+      "value": 18,
+      "label": "18/60"
+     },
+     {
+      "name": "Always escalate",
+      "color": "#c3c9cc",
+      "value": 20,
+      "label": "20/60"
+     }
+    ],
+    "max": 60,
+    "foot": "Safety misses (danger automated): rules 7, every model 0. Luna's misses were over-escalations; Jev's were wait-vs-reroute near-ties."
+   }
+  ]
+ },
+ "end": {
+  "lines": [
+   "Code owns the <em style='color:#137f79'>map</em>.",
+   "Models read the <em style='color:#ef1760'>mess</em>.",
+   "Test the <em style='color:#9a5b00'>confidence</em> before you gate on it."
+  ],
+  "fine": "Methods, prompts, raw responses and rerun scripts accompany the write-up. OpenAI's Decisions API returned 403 for this key and was not tested.",
+  "stats": [
+   {
+    "value": "2,281",
+    "label": "real API calls"
+   },
+   {
+    "value": "3",
+    "label": "small tests"
+   },
+   {
+    "value": "$0.15",
+    "label": "estimated total spend"
+   }
+  ]
+ }
+}
