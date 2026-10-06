@@ -1,0 +1,529 @@
+{
+  "date": "2026-10-06",
+  "model": "jev-1.13.0",
+  "episodes": [
+    {
+      "id": "open_aisles-0",
+      "family": "open_aisles",
+      "orientation": 0,
+      "size": 7,
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        6,
+        3
+      ],
+      "walls": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "rough": [],
+      "cargo": "standard",
+      "event": null,
+      "max_actions": 32
+    },
+    {
+      "id": "open_aisles-1",
+      "family": "open_aisles",
+      "orientation": 1,
+      "size": 7,
+      "start": [
+        3,
+        0
+      ],
+      "goal": [
+        3,
+        6
+      ],
+      "walls": [
+        [
+          5,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "rough": [],
+      "cargo": "standard",
+      "event": null,
+      "max_actions": 32
+    },
+    {
+      "id": "open_aisles-2",
+      "family": "open_aisles",
+      "orientation": 2,
+      "size": 7,
+      "start": [
+        6,
+        3
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "walls": [
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "rough": [],
+      "cargo": "standard",
+      "event": null,
+      "max_actions": 32
+    },
+    {
+      "id": "barrier_detour-0",
+      "family": "barrier_detour",
+      "orientation": 0,
+      "size": 7,
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        6,
+        3
+      ],
+      "walls": [
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "rough": [],
+      "cargo": "standard",
+      "event": null,
+      "max_actions": 32
+    },
+    {
+      "id": "barrier_detour-1",
+      "family": "barrier_detour",
+      "orientation": 1,
+      "size": 7,
+      "start": [
+        3,
+        0
+      ],
+      "goal": [
+        3,
+        6
+      ],
+      "walls": [
+        [
+          5,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "rough": [],
+      "cargo": "standard",
+      "event": null,
+      "max_actions": 32
+    },
+    {
+      "id": "barrier_detour-2",
+      "family": "barrier_detour",
+      "orientation": 2,
+      "size": 7,
+      "start": [
+        6,
+        3
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "walls": [
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "rough": [],
+      "cargo": "standard",
+      "event": null,
+      "max_actions": 32
+    },
+    {
+      "id": "fragile_cargo-0",
+      "family": "fragile_cargo",
+      "orientation": 0,
+      "size": 7,
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        6,
+        3
+      ],
+      "walls": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "rough": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          3
+        ]
+      ],
+      "cargo": "fragile",
+      "event": null,
+      "max_actions": 32
+    },
+    {
+      "id": "fragile_cargo-1",
+      "family": "fragile_cargo",
+      "orientation": 1,
+      "size": 7,
+      "start": [
+        3,
+        0
+      ],
+      "goal": [
+        3,
+        6
+      ],
+      "walls": [
+        [
+          5,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "rough": [
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "cargo": "fragile",
+      "event": null,
+      "max_actions": 32
+    },
+    {
+      "id": "fragile_cargo-2",
+      "family": "fragile_cargo",
+      "orientation": 2,
+      "size": 7,
+      "start": [
+        6,
+        3
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "walls": [
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "rough": [
+        [
+          4,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "cargo": "fragile",
+      "event": null,
+      "max_actions": 32
+    },
+    {
+      "id": "door_closure-0",
+      "family": "door_closure",
+      "orientation": 0,
+      "size": 7,
+      "start": [
+        0,
+        3
+      ],
+      "goal": [
+        6,
+        3
+      ],
+      "walls": [
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "rough": [],
+      "cargo": "standard",
+      "event": {
+        "at_action": 2,
+        "close_cell": [
+          3,
+          3
+        ]
+      },
+      "max_actions": 32
+    },
+    {
+      "id": "door_closure-1",
+      "family": "door_closure",
+      "orientation": 1,
+      "size": 7,
+      "start": [
+        3,
+        0
+      ],
+      "goal": [
+        3,
+        6
+      ],
+      "walls": [
+        [
+          5,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "rough": [],
+      "cargo": "standard",
+      "event": {
+        "at_action": 2,
+        "close_cell": [
+          3,
+          3
+        ]
+      },
+      "max_actions": 32
+    },
+    {
+      "id": "door_closure-2",
+      "family": "door_closure",
+      "orientation": 2,
+      "size": 7,
+      "start": [
+        6,
+        3
+      ],
+      "goal": [
+        0,
+        3
+      ],
+      "walls": [
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "rough": [],
+      "cargo": "standard",
+      "event": {
+        "at_action": 2,
+        "close_cell": [
+          3,
+          3
+        ]
+      },
+      "max_actions": 32
+    }
+  ],
+  "instructions": "You control a simulated warehouse robot carrying one package. Choose one next action to reach the current delivery destination with as few actions as possible. Obey the package and aisle restrictions. Use the whole known map to navigate around barriers. Do not repeatedly reverse direction or wait when a valid route exists. Select finish only when at the current delivery destination. Coordinates: x increases east, y increases south. New door/destination updates in the current state override earlier states.",
+  "baselines": [
+    "breadth_first_search_replanning",
+    "manhattan_greedy"
+  ],
+  "observation": "Full symbolic map, exact coordinates, cargo rules, adjacent destinations and computed Manhattan distances, previous six actions. No rendered image input; no future event disclosed until it occurs.",
+  "finish": "Explicit finish action required at the destination. Incorrect finish terminates as false completion. Invalid moves rejected and count toward action budget; no physical action occurs.",
+  "loop_stop": "Stop after robot visits same cell five times. Such failures count in completion rate.",
+  "scope": "12 handcrafted toy worlds, three map rotations in each of four families; diagnostic experiment, not a validated robotics benchmark or deployment safety test.",
+  "cost_cap": "Shared ledger with routing pilot; at most 1500 attempted requests and $0.10 estimated spend at published direct API price."
+}
